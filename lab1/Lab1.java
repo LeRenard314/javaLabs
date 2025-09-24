@@ -21,10 +21,6 @@ public class Lab1 {
         return mapData;
     }
 
-    private static boolean durakProtocol(String target, int value) {
-        return false;
-    }
-
     private static double calculateIntersectionPoints(HashMap<String, Double> map) {
         double a = map.get("A"), b = map.get("B"), c = map.get("C"), xZero = map.get("xZero"), yZero = map.get("yZero"), r = map.get("R");
         double points = 0, distance = Math.abs(a * xZero + b * yZero + c) / (int)Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
