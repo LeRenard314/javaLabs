@@ -1,31 +1,37 @@
-// I didn't write the majority of this code, it was given. Ik it's shit
 public class Bike implements Cloneable {
-    Wheel w;
+    String brand, model;
+    Wheel wheel; 
+    double price;
     
-    Bike (int wCount, int wDiameter) {
-        w = new Wheel(wDiameter, wCount);
+    Bike() {
+        this.wheel = new Wheel(0, 0);
+        this.brand = "";
+        this.model = "";
+        this.price = 0;
     }
 
+    // Variable naming shitty here, I just have no ideas
+    Bike (String bBrand, String bModel, int wCount, int wDiameter, double bPrice) {
+        this.brand = bBrand;
+        this.model = bModel;
+        this.wheel = new Wheel(wDiameter, wCount);
+        this.price = bPrice;
+    }
+    
     @Override
     public String toString() {
-        return "The amount of wheels: " + w.wheelCount + "\nThe diameter of wheels: " + w.d;
+        return "Brand: " + this.brand + " Model: " + this.model + " Wheels: " + wheel.wheelCount + " Wheel diameter: " + wheel.diameter + " Price: " + this.price;
     }
 
-    public static void main (String[] arg) throws CloneNotSupportedException {
-        Bike bike1 = new Bike(2, 26);
-        Bike bike2 = (Bike) bike1.clone();
-        System.out.format("=Bike1=\n%s\nHash: %d\n", bike1.toString(), bike1.hashCode());
-        System.out.format("=Bike2=\n%s\nHash: %d\n", bike2.toString(), bike2.hashCode());
-        System.out.println(bike1.equals(bike2));
-    }
 }
 
 class Wheel {
-    int d;
+    int diameter;
     int wheelCount;
 
-    Wheel (int di, int wheelCount){
-        this.d = di;
+    Wheel (int diameter, int wheelCount){
+        this.diameter = diameter;
         this.wheelCount = wheelCount;
     }
+
 }

@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Lab1 {
     public static void main(String[] args) {
@@ -23,6 +23,9 @@ public class Lab1 {
 
     private static double calculateIntersectionPoints(HashMap<String, Double> map) {
         double a = map.get("A"), b = map.get("B"), c = map.get("C"), xZero = map.get("xZero"), yZero = map.get("yZero"), r = map.get("R");
+        if (a == 0 && b == 0) {
+            return 0;
+        }
         double points = 0, distance = Math.abs(a * xZero + b * yZero + c) / (int)Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
         if (distance == r) {
             points = 1;
